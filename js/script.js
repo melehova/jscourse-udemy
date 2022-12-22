@@ -1,41 +1,34 @@
 'use.strict';
 
-const obj = new Object();
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        background: 'red',
-    },
-    makeTest: function () {
-        console.log('test');
-    }
-};
+const arr = [1, 22, 13, 6, 58];
 
-console.log(options.name);
-delete options.name;
-console.log(options);
+arr.pop();
+arr.push(10);
 
-// get obj length
-let counter = 0;
-for (let key in options) {
-    counter++;
-    if (typeof options[key] === 'object') {
-        for (let i in options[key]) {
-            console.log(key, i, options[key][i]);
-        }
-    } else {
-        console.log(key, options[key]);
-    }
+console.log(arr);
+
+// !!! can use 'break' / 'cotinue'
+for (let i of arr) {
+    console.log(i);
 }
-console.log(counter);
-// get obj length
-console.log(Object.keys(options).length);
-// obj methods
-options.makeTest();
-// destructurizing
-const {border, background} = options.colors;
 
-console.log(border);
+console.log(arr.length);
+arr[99] = 0;
+console.log(arr.length);
+
+
+//          item index array
+arr.forEach((el, i, arr) => {
+    console.log(el, i, arr);
+});
+
+const str = prompt('', '');
+const products = str.split(', ');
+
+console.log(products);
+products.sort();
+console.log(products.join('-ok-'));
+
+// quick sort
+arr.sort((a, b) => a - b);
+console.log(arr);
