@@ -1,29 +1,23 @@
 'use.strict';
 
-const someString = 'This is some strange string';
-
-function reverse(str) {
-    if (typeof str !== 'string') {
-        return 'Ошибка!';
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: () => {
+        console.log('Hello');
     }
-    return Array.from(str).reverse().join('');
-}
+};
 
-const baseCurrencies = ['USD', 'EUR'];
-const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+const john0 = {
+    health: 100,
+};
+// old format deprecated!
+// john.__proto__ = soldier;
 
-function availableCurr(arr, missingCurr) {
-    if (!arr.length) {
-        return 'Нет доступных валют';
-    }
-    let res = 'Доступные валюты:\n';
-    for (let i in arr) {
-        if (arr[i] !== missingCurr) {
-            res += `${arr[i]}\n`;
-        }
-    }
-    return res;
-}
+//                    to     from
+Object.setPrototypeOf(john0, soldier);
 
-console.log(reverse(someString));
-console.log(availableCurr([...baseCurrencies, ...additionalCurrencies], 'RUB'));
+const john = Object.create(soldier);
+console.log(john);
+john.sayHello();
+
