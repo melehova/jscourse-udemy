@@ -1,20 +1,34 @@
 'use.strict';
 
-const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+// let number = 5; debugger
 
-function sortStudentsByGroups(arr) {
-    arr.sort();
-    const res = [];
-    for (let i = 0; i < arr.length; i += 3) {
-        res.push(arr.slice(i, i+3));
-    }
-    const last = res[res.length-1];
-    if (last.length === 3) {
-        res.push('Оставшиеся студенты: -');
-    } else if (last.length < 3) {
-        res.splice(res.length-1, 1, `Оставшиеся студенты: ${last.join(', ')}`)
-    }
-    return res;
+// // function declaration
+// function logNumber() {
+//     let number = 4; debugger
+//     console.log(number);
+// }
+
+// number = 6;
+
+// logNumber(); debugger
+
+// number = 8;
+
+// logNumber(); debugger
+
+function createCounter() {
+    let counter = 5;
+
+    const muFunction = function() {
+        return ++counter;
+    };
+
+    return muFunction;
 }
 
-console.log(sortStudentsByGroups(students));
+const increment = createCounter();
+const c1 = increment();
+const c2 = increment();
+const c3 = increment();
+
+console.log(c1, c2, c3);
