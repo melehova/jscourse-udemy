@@ -33,10 +33,6 @@ document.querySelector('.promo__bg').style.backgroundImage = 'url(../img/bg.jpg)
 // 4
 const ul = document.querySelector('ul.promo__interactive-list');
 ul.querySelectorAll('li').forEach(li => li.remove());
-const ol = document.createElement('ol');
-ol.style.listStyleType = 'decimal';
-ul.classList.forEach(clas => ol.classList.add(clas));
-ul.replaceWith(ol);
 movieDB.movies.sort().forEach((movie, idx) => {
     const li = document.createElement('li');
     li.classList.add('promo__interactive-item');
@@ -45,5 +41,5 @@ movieDB.movies.sort().forEach((movie, idx) => {
     const div = document.createElement('div');
     div.classList.add('delete');
     li.append(div);
-    ol.append(li);
+    ul.append(li);
 });
