@@ -1,52 +1,26 @@
-'use.strict';
+/* Задания на урок:
 
-const restorantData = {
-  menu: [
-    {
-      name: 'Salad Caesar',
-      price: '14$'
-    },
-    {
-      name: 'Pizza Diavola',
-      price: '9$'
-    },
-    {
-      name: 'Beefsteak',
-      price: '17$'
-    },
-    {
-      name: 'Napoleon',
-      price: '7$'
-    }
-  ],
-  waitors: [
-    { name: 'Alice', age: 22 }, { name: 'John', age: 24 }
-  ],
-  averageLunchPrice: '20$',
-  openNow: true
+1) Удалить все рекламные блоки со страницы (правая часть сайта)
+
+2) Изменить жанр фильма, поменять "комедия" на "драма"
+
+3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
+Реализовать только при помощи JS
+
+4) Список фильмов на странице сформировать на основании данных из этого JS файла.
+Отсортировать их по алфавиту 
+
+5) Добавить нумерацию выведенных фильмов */
+
+'use strict';
+
+const movieDB = {
+    movies: [
+        "Логан",
+        "Лига справедливости",
+        "Ла-ла лэнд",
+        "Одержимость",
+        "Скотт Пилигрим против..."
+    ]
 };
 
-const isOpen = prop => prop ? 'Открыто' : 'Закрыто';
-
-console.log(isOpen(restorantData.openNow));
-
-function isAverageLunchPriceTrue(fDish, sDish, average) {
-  if (+fDish.price.slice(0, -1) + (+sDish.price.slice(0, -1)) < +average.slice(0, -1)) {
-    return 'Цена ниже средней';
-  } else {
-    return 'Цена выше средней';
-  }
-}
-
-console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
-
-function transferWaitors(data) {
-  const copy = JSON.parse(JSON.stringify(data));
-
-  copy.waitors[0] = { name: 'Mike', age: 32 };
-  return copy;
-}
-
-let newRest = transferWaitors(restorantData);
-console.log(restorantData);
-console.log(newRest);
